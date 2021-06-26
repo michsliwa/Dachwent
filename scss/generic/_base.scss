@@ -1,21 +1,76 @@
 * {
   box-sizing: border-box;
 }
-
 body {
-  font-family: $font-open-sans;
+  font-family: 'Cabin', sans-serif;
+  font-size: calc(12px + (20 - 12) * ((100vw - 300px) / (1600 - 300)));
+  width: 100vw;
+  overflow-x: hidden;
+  color: white;
 }
 
-a {
-  text-decoration: none;
+.hero {
+  background-image: url("../images/photo2.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  height: 100%;
+
+  &::after {
+    content: "";
+    //background-color: #6A5F5F;
+    background-color: $main-color;
+    opacity: .3;
+    margin-top: 200px;
+    width: 100vw;
+    display: block;
+    position: absolute;
+    height: calc(100% - 200px);
+    top: 0;
+    left: 0;
+    @include tablet{
+      margin-top: 220px;
+      height: calc(100% - 220px);
+    }
+  }
 }
 
-h2 {
-  font-family: $font-raleway;
-  font-size: 2.25rem;
-}
+h1{
+  @include headings;
+  font-size: calc(36px + (68 - 36) * ((100vw - 300px) / (1600 - 300)));
+  position: relative;
+  z-index: 1;
 
-.container {
-  width: 1200px;
+}
+h2{
+  @include headings;
+  padding: 10px 0;
+  font-size: calc(30px + (58 - 30) * ((100vw - 300px) / (1600 - 300)));
+  border-bottom: 4px solid gray;
+  display: inline-block;
+}
+h3{
+  @include headings;
+  font-size: calc(24px + (58 - 24) * ((100vw - 300px) / (1600 - 300)));
+  text-shadow: 2px 4px 9px rgba(0,0,0,0.72);
+
+}
+h4{
+  @include headings;
+  font-size: calc(20px + (58 - 20) * ((100vw - 300px) / (1600 - 300)));
+  text-transform: none;
+};
+p{
+  max-width: 90vw;
   margin: 0 auto;
 }
+a{
+  text-decoration: none;
+  color:$text-main-color;
+  transition: 1s;
+  &:hover{
+    color: #187fc2;
+  }
+}
+
+
